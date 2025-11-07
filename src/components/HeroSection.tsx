@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { TextEffect } from "@/components/ui/text-effect";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -103,17 +104,14 @@ const HeroSection = () => {
       />
       
       <div className="relative z-10 container mx-auto px-6 text-center">
-        <h1
-          className={`text-4xl md:text-6xl lg:text-7xl font-light text-primary-foreground max-w-5xl mx-auto leading-tight transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+        <TextEffect
+          per="word"
+          preset="slide"
+          as="h1"
+          className="text-4xl md:text-6xl lg:text-7xl font-light text-primary-foreground max-w-5xl mx-auto leading-tight"
         >
-          Convertimos visión en estructura,{" "}
-          <span className="font-medium text-secondary">
-            estrategia en resultados
-          </span>
-          .
-        </h1>
+          Convertimos visión en estructura, estrategia en resultados.
+        </TextEffect>
       </div>
     </section>
   );
