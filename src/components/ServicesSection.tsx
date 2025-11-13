@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 const services = [
   "Storytelling",
   "Estrategia",
-  "Produccion Audiovisual",
+  "Producción Audiovisual",
   "Branding",
-  "Consultoria",
-  "iA",
+  "Consultoría",
+  "Soluciones con IA",
 ];
 
 const ServicesSection = () => {
@@ -37,23 +38,35 @@ const ServicesSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center bg-[hsl(var(--dark-bg))] py-20 px-6"
+      className="min-h-screen flex items-center justify-center bg-[hsl(var(--background-alt))] py-20 px-6"
     >
       <div className="container mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={service}
-              className={`group p-8 border border-primary-foreground/20 hover:border-secondary transition-all duration-500 hover:shadow-[0_0_20px_rgba(0,100,102,0.3)] cursor-pointer ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <h3 className="text-2xl md:text-3xl font-light text-primary-foreground group-hover:text-secondary transition-colors">
-                {service}
-              </h3>
-            </div>
-          ))}
+        <h2 className="text-3xl md:text-4xl font-light text-foreground mb-12 tracking-widest uppercase text-center">
+          NUESTROS SERVICIOS
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {services.map((service, index) => {
+            const isLeftColumn = index % 2 === 0;
+            
+            return (
+              <motion.div
+                key={service}
+                initial={{ opacity: 0, x: isLeftColumn ? -100 : 100 }}
+                animate={isVisible ? { opacity: 1, x: 0 } : {}}
+                transition={{ 
+                  duration: 0.8, 
+                  ease: "easeOut",
+                  delay: index * 0.1 
+                }}
+                className="group p-8 bg-background rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
+              >
+                <h3 className="text-2xl md:text-3xl font-light text-foreground group-hover:text-primary transition-colors">
+                  {service}
+                </h3>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

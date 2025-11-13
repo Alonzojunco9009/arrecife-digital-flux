@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 const DifferentiatorSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,7 +12,7 @@ const DifferentiatorSection = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.3 }
     );
 
     if (sectionRef.current) {
@@ -30,26 +31,26 @@ const DifferentiatorSection = () => {
       ref={sectionRef}
       className="min-h-screen flex items-center justify-center bg-background py-20 px-6"
     >
-      <div className="container mx-auto max-w-4xl">
-        <h2
-          className={`text-3xl md:text-5xl font-medium text-foreground mb-8 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-          style={{ transitionDelay: "100ms" }}
+      <div className="container mx-auto max-w-5xl space-y-8">
+        {/* THE SOLUTION - Headline from LEFT */}
+        <motion.h2
+          initial={{ opacity: 0, x: -100 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="text-4xl md:text-5xl lg:text-6xl font-medium text-foreground"
         >
           Más allá de una agencia.
-        </h2>
+        </motion.h2>
         
-        <p
-          className={`text-xl md:text-2xl text-muted-foreground font-light leading-relaxed transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-          style={{ transitionDelay: "300ms" }}
+        {/* Body from RIGHT */}
+        <motion.p
+          initial={{ opacity: 0, x: 100 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed"
         >
-          Combinamos los fundamentos de marketing actual con el desarrollo de
-          negocio. Realizamos un estudio único para tu marca y, con base en
-          ello, desarrollamos una estrategia real, no solo contenido.
-        </p>
+          Combinamos la visión de tu negocio con una estrategia hecha a la medida para lograr tus objetivos desde el enfoque de marketing.
+        </motion.p>
       </div>
     </section>
   );

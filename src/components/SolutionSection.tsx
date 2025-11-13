@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 const SolutionSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,7 +12,7 @@ const SolutionSection = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.3 }
     );
 
     if (sectionRef.current) {
@@ -28,30 +29,21 @@ const SolutionSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center bg-background py-20 px-6"
+      className="min-h-screen flex items-center justify-center bg-[hsl(var(--background-alt))] py-20 px-6"
     >
-      <div className="container mx-auto max-w-4xl">
-        <h2
-          className={`text-3xl md:text-5xl font-light text-foreground mb-8 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-          style={{ transitionDelay: "100ms" }}
+      <div className="container mx-auto max-w-5xl">
+        {/* THE PROBLEM - Slides from RIGHT */}
+        <motion.p
+          initial={{ opacity: 0, x: 100 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="text-3xl md:text-5xl lg:text-6xl font-light text-foreground leading-tight"
         >
-          Porque en un entorno saturado de discursos de venta,{" "}
+          Porque en un entorno saturado de speechs de venta,{" "}
           <span className="font-medium">
-            tener un gran producto o una buena idea ya no es suficiente.
+            tener un gran producto ya no es suficiente.
           </span>
-        </h2>
-        
-        <p
-          className={`text-xl md:text-2xl text-muted-foreground font-light transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-          style={{ transitionDelay: "300ms" }}
-        >
-          En Arrecife no solo damos forma a lo que haces, te acompañamos a
-          escalarlo desde el enfoque de marketing.
-        </p>
+        </motion.p>
       </div>
     </section>
   );

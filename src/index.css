@@ -8,48 +8,44 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Arrecife Brand Colors */
-    --prussian-blue: 209 42% 20%;     /* #212f45 */
-    --charcoal: 195 44% 20%;          /* #1b3a4b */
-    --space-cadet: 243 23% 20%;       /* #272640 */
-    --caribbean-current: 181 100% 20%; /* #006466 */
-    --palatinate: 300 68% 30%;        /* #4d194d */
+    /* Arrecife Brand Colors - Light Theme */
+    --brand-teal: 181 100% 20%;        /* #006466 */
+    --brand-teal-dark: 185 91% 20%;    /* #065A60 */
+    --brand-teal-hover: 185 80% 20%;   /* #0B525B */
+    --dark-charcoal: 203 45% 20%;      /* #1B3A4B */
     
-    /* Light mode */
-    --background: 0 0% 96%;
-    --foreground: 209 42% 20%;
+    /* Light mode - Pure White Theme */
+    --background: 0 0% 100%;           /* Pure White */
+    --foreground: 203 45% 20%;         /* Dark Charcoal for text */
+    
+    --background-alt: 220 13% 96%;     /* Light Silver #F3F4F6 */
     
     --card: 0 0% 100%;
-    --card-foreground: 209 42% 20%;
+    --card-foreground: 203 45% 20%;
     
     --popover: 0 0% 100%;
-    --popover-foreground: 209 42% 20%;
+    --popover-foreground: 203 45% 20%;
     
-    --primary: 209 42% 20%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 181 100% 20%;           /* Brand Teal */
+    --primary-foreground: 0 0% 100%;
     
-    --secondary: 181 100% 20%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 181 100% 20%;         /* Brand Teal */
+    --secondary-foreground: 0 0% 100%;
     
-    --muted: 0 0% 92%;
-    --muted-foreground: 209 20% 45%;
+    --muted: 220 13% 96%;
+    --muted-foreground: 203 30% 40%;
     
-    --accent: 300 68% 30%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 181 100% 20%;
+    --accent-foreground: 0 0% 100%;
     
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 100%;
     
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
     --ring: 181 100% 20%;
     
-    --radius: 0.75rem;
-    
-    /* Dark sections */
-    --dark-bg: 209 42% 20%;
-    --dark-bg-alt: 195 44% 20%;
-    --dark-bg-space: 243 23% 20%;
+    --radius: 0.5rem;
     
     /* Animation timing */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);

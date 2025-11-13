@@ -1,117 +1,54 @@
-import { useEffect, useState, useRef } from "react";
-import { TextEffect } from "@/components/ui/text-effect";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import logo from "@/assets/arrecife-logo.png";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     setIsVisible(true);
-    
-    // Particle animation in canvas
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-    
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    
-    const particles: Array<{
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      size: number;
-    }> = [];
-    
-    // Create particles
-    for (let i = 0; i < 50; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 2 + 1,
-      });
-    }
-    
-    function animate() {
-      if (!ctx || !canvas) return;
-      
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      particles.forEach((particle) => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-        
-        // Wrap around edges
-        if (particle.x < 0) particle.x = canvas.width;
-        if (particle.x > canvas.width) particle.x = 0;
-        if (particle.y < 0) particle.y = canvas.height;
-        if (particle.y > canvas.height) particle.y = 0;
-        
-        // Draw particle
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(0, 100, 102, 0.3)";
-        ctx.fill();
-      });
-      
-      // Draw connections
-      particles.forEach((p1, i) => {
-        particles.slice(i + 1).forEach((p2) => {
-          const dx = p1.x - p2.x;
-          const dy = p1.y - p2.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          if (distance < 150) {
-            ctx.beginPath();
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(0, 100, 102, ${0.2 * (1 - distance / 150)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        });
-      });
-      
-      requestAnimationFrame(animate);
-    }
-    
-    animate();
-    
-    const handleResize = () => {
-      if (!canvas) return;
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    
-    window.addEventListener("resize", handleResize);
-    
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[hsl(var(--dark-bg))]">
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full"
-        aria-hidden="true"
-      />
-      
-      <div className="relative z-10 container mx-auto px-6 text-center">
-        <TextEffect
-          per="word"
-          preset="slide"
-          as="h1"
-          className="text-4xl md:text-6xl lg:text-7xl font-light text-primary-foreground max-w-5xl mx-auto leading-tight"
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-background py-20 px-6">
+      {/* Logo at top */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="absolute top-8 left-1/2 -translate-x-1/2 md:top-12"
+      >
+        <img 
+          src={logo} 
+          alt="Arrecife" 
+          className="h-12 md:h-16 w-auto"
+        />
+      </motion.div>
+
+      <div className="container mx-auto max-w-6xl grid md:grid-cols-2 gap-12 items-center">
+        {/* Text slides from LEFT */}
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="text-left"
         >
-          Convertimos visión en estructura, estrategia en resultados.
-        </TextEffect>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-foreground leading-tight">
+            Convertimos tu visión en estructura y la estrategia en resultados.
+          </h1>
+        </motion.div>
+
+        {/* Graphic block slides from RIGHT */}
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          className="relative h-64 md:h-96"
+        >
+          <div className="absolute inset-0 bg-primary rounded-lg opacity-10" />
+          <div className="absolute top-4 left-4 right-4 bottom-4 border-2 border-primary rounded-lg" />
+          <div className="absolute top-8 left-8 right-8 bottom-8 bg-primary/20 rounded-lg" />
+        </motion.div>
       </div>
     </section>
   );

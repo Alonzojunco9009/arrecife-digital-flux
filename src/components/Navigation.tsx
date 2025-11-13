@@ -12,7 +12,7 @@ const Navigation = () => {
         variant="ghost"
         size="icon"
         onClick={() => setIsOpen(!isOpen)}
-        className="relative z-50 hover:bg-secondary/20"
+        className="relative z-50 hover:bg-muted transition-all hover:scale-110"
         aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
       >
         {isOpen ? (
@@ -24,19 +24,19 @@ const Navigation = () => {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 bg-primary/95 backdrop-blur-sm z-40 flex items-center justify-center animate-fade-in">
+        <div className="fixed inset-0 bg-background z-40 flex items-center justify-center">
           <div className="flex flex-col space-y-8 text-center">
             <Link
               to="/"
               onClick={() => setIsOpen(false)}
-              className="text-3xl font-light text-primary-foreground hover:text-secondary transition-colors"
+              className="text-3xl font-light text-foreground hover:text-primary transition-colors"
             >
               Inicio
             </Link>
             <Link
               to="/contacto"
               onClick={() => setIsOpen(false)}
-              className="text-3xl font-light text-primary-foreground hover:text-secondary transition-colors"
+              className="text-3xl font-light text-foreground hover:text-primary transition-colors"
             >
               Contacto
             </Link>

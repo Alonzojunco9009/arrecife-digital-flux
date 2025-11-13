@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const CTASection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const CTASection = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.3 }
     );
 
     if (sectionRef.current) {
@@ -28,53 +28,52 @@ const CTASection = () => {
     };
   }, []);
 
-  // Generate random characters for background animation
-  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-  const randomChars = Array.from({ length: 20 }, () =>
-    characters.charAt(Math.floor(Math.random() * characters.length))
-  );
-
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center bg-[hsl(var(--dark-bg-alt))] py-20 px-6"
+      className="relative min-h-screen flex items-center justify-center bg-background py-20 px-6 overflow-hidden"
     >
-      <div className="container mx-auto text-center">
-        <div
-          className={`transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          <Link to="/contacto">
-            <Button
-              size="lg"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              className="relative overflow-hidden text-lg px-12 py-6 rounded-full bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-accent hover:border-accent hover:text-accent-foreground transition-all duration-300"
-            >
-              {/* Animated character background */}
-              {isHovered && (
-                <div className="absolute inset-0 flex items-center justify-center opacity-20 overflow-hidden">
-                  {randomChars.map((char, i) => (
-                    <span
-                      key={i}
-                      className="char-rain absolute text-xs font-mono"
-                      style={{
-                        left: `${(i / randomChars.length) * 100}%`,
-                        animationDelay: `${i * 0.1}s`,
-                      }}
-                    >
-                      {char}
-                    </span>
-                  ))}
-                </div>
-              )}
-              
-              <span className="relative z-10">
-                Quiero escalar mi negocio. + INFO
-              </span>
-            </Button>
-          </Link>
+      {/* Decorative teal element */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-primary opacity-10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary opacity-5 rounded-full blur-3xl" />
+
+      <div className="container mx-auto max-w-4xl relative z-10">
+        <div className="flex flex-col items-center space-y-12 text-center">
+          {/* Text Block */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-2xl md:text-4xl font-light text-foreground leading-relaxed"
+          >
+            En Arrecife no solo damos forma a lo que haces, te acompañamos a escalarlo desde el enfoque de marketing.
+          </motion.p>
+
+          {/* CTA Label */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            className="text-xl md:text-2xl font-medium text-primary"
+          >
+            Quiero escalar mi negocio.
+          </motion.p>
+
+          {/* Button */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isVisible ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+          >
+            <Link to="/contacto">
+              <Button 
+                size="lg"
+                className="rounded-full px-12 py-6 text-lg font-medium hover:scale-110 transition-all duration-300 bg-primary hover:bg-[hsl(185_80%_20%)]"
+              >
+                + INFO
+              </Button>
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>
