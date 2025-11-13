@@ -45,19 +45,19 @@ const ServicesSection = () => {
           NUESTROS SERVICIOS
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => {
             const isLeftColumn = index % 2 === 0;
             
             return (
               <motion.div
                 key={service}
-                initial={{ opacity: 0, x: isLeftColumn ? -100 : 100 }}
+                initial={{ opacity: 0, x: isLeftColumn ? -50 : 50 }}
                 animate={isVisible ? { opacity: 1, x: 0 } : {}}
                 transition={{ 
                   duration: 0.8, 
                   ease: "easeOut",
-                  delay: index * 0.1 
+                  delay: index * 0.15 
                 }}
                 className="group p-8 bg-background rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
               >

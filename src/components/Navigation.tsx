@@ -7,12 +7,12 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 right-0 z-50 p-6">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-end p-6">
       <Button
         variant="ghost"
         size="icon"
         onClick={() => setIsOpen(!isOpen)}
-        className="relative z-50 hover:bg-muted transition-all hover:scale-110"
+        className="relative z-[100] hover:bg-muted transition-all hover:scale-110"
         aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
       >
         {isOpen ? (
