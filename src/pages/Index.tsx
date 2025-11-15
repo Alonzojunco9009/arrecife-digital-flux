@@ -13,11 +13,17 @@ const Index = () => {
       <Navigation />
       
       <main>
-        <HeroSection />
+        <section id="inicio">
+          <HeroSection />
+        </section>
         <SolutionSection />
         <DifferentiatorSection />
-        <AboutSection />
-        <ServicesSection />
+        <section id="about">
+          <AboutSection />
+        </section>
+        <section id="servicios">
+          <ServicesSection />
+        </section>
         <CTASection />
       </main>
 

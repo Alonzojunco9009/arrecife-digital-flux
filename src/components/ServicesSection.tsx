@@ -52,13 +52,15 @@ const ServicesSection = () => {
             return (
               <motion.div
                 key={service}
-                initial={{ opacity: 0, x: isLeftColumn ? -50 : 50 }}
-                animate={isVisible ? { opacity: 1, x: 0 } : {}}
+                initial={{ opacity: 0, x: isLeftColumn ? -50 : 50, y: 0 }}
+                animate={isVisible ? { opacity: 1, x: 0, y: 0 } : {}}
                 transition={{ 
-                  duration: 0.8, 
+                  duration: 1.2, 
                   ease: "easeOut",
-                  delay: index * 0.15 
+                  delay: index * 0.2 
                 }}
+                whileInView={{ y: -5 }}
+                viewport={{ once: false, amount: 0.3 }}
                 className="group p-8 bg-background rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
               >
                 <h3 className="text-2xl md:text-3xl font-light text-foreground group-hover:text-primary transition-colors">

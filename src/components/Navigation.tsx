@@ -26,13 +26,27 @@ const Navigation = () => {
       {isOpen && (
         <div className="fixed inset-0 bg-background z-40 flex items-center justify-center">
           <div className="flex flex-col space-y-8 text-center">
-            <Link
-              to="/"
+            <a
+              href="#inicio"
               onClick={() => setIsOpen(false)}
               className="text-3xl font-light text-foreground hover:text-primary transition-colors"
             >
               Inicio
-            </Link>
+            </a>
+            <a
+              href="#servicios"
+              onClick={() => setIsOpen(false)}
+              className="text-3xl font-light text-foreground hover:text-primary transition-colors"
+            >
+              Nuestros Servicios
+            </a>
+            <a
+              href="#about"
+              onClick={() => setIsOpen(false)}
+              className="text-3xl font-light text-foreground hover:text-primary transition-colors"
+            >
+              About Us
+            </a>
             <Link
               to="/contacto"
               onClick={() => setIsOpen(false)}
