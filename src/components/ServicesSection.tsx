@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const services = [
   "Storytelling",
@@ -11,65 +11,72 @@ const services = [
 ];
 
 const ServicesSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
 
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center bg-[hsl(var(--background-alt))] py-20 px-6"
+      className="relative min-h-[300vh] flex flex-col items-center justify-start bg-[hsl(var(--background-alt))] py-32 px-6 overflow-hidden"
     >
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-light text-foreground mb-12 tracking-widest uppercase text-center">
-          NUESTROS SERVICIOS
-        </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((service, index) => {
-            const isLeftColumn = index % 2 === 0;
-            
-            return (
-              <motion.div
-                key={service}
-                initial={{ opacity: 0, x: isLeftColumn ? -50 : 50, y: 0 }}
-                animate={isVisible ? { opacity: 1, x: 0, y: 0 } : {}}
-                transition={{ 
-                  duration: 1.2, 
-                  ease: "easeOut",
-                  delay: index * 0.2 
-                }}
-                whileInView={{ y: -5 }}
-                viewport={{ once: false, amount: 0.3 }}
-                className="group p-8 bg-background rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
-              >
-                <h3 className="text-2xl md:text-3xl font-light text-foreground group-hover:text-primary transition-colors">
-                  {service}
-                </h3>
-              </motion.div>
-            );
-          })}
-        </div>
+      <motion.h2 
+        className="text-3xl md:text-4xl font-light text-foreground mb-32 tracking-widest uppercase text-center sticky top-24"
+        style={{
+          opacity: useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0])
+        }}
+      >
+        NUESTROS SERVICIOS
+      </motion.h2>
+      
+      <div className="relative w-full max-w-7xl mx-auto">
+        {services.map((service, index) => {
+          const start = index / services.length;
+          const end = (index + 1) / services.length;
+          
+          const y = useTransform(
+            scrollYProgress,
+            [start, end],
+            [100, -100]
+          );
+          
+          const opacity = useTransform(
+            scrollYProgress,
+            [start - 0.1, start, end, end + 0.1],
+            [0, 1, 1, 0]
+          );
+          
+          const scale = useTransform(
+            scrollYProgress,
+            [start - 0.05, start + 0.05, end - 0.05, end + 0.05],
+            [0.8, 1, 1, 0.8]
+          );
+          
+          const blur = useTransform(
+            scrollYProgress,
+            [start - 0.1, start, end, end + 0.1],
+            [10, 0, 0, 10]
+          );
+
+          return (
+            <motion.div
+              key={service}
+              className="sticky top-1/2 -translate-y-1/2 flex items-center justify-center min-h-screen"
+              style={{
+                y,
+                opacity,
+                scale,
+                filter: useTransform(blur, (value) => `blur(${value}px)`),
+              }}
+            >
+              <h3 className="text-5xl md:text-7xl lg:text-8xl font-light text-foreground text-center leading-tight tracking-wide">
+                {service}
+              </h3>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );
