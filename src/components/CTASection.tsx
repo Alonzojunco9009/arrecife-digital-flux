@@ -43,17 +43,17 @@ const CTASection = () => {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
             className="text-2xl md:text-4xl font-light text-foreground leading-relaxed"
           >
-            En Arrecife no solo damos forma a lo que haces, te acompañamos a escalarlo desde el enfoque de marketing.
+            Cuidamos a nuestros clientes como un arrecife: con equilibrio, conocimiento y respeto por su ritmo de crecimiento.
           </motion.p>
 
           {/* CTA Label */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
             className="text-xl md:text-2xl font-medium text-primary"
           >
             Quiero escalar mi negocio.
@@ -63,7 +63,7 @@ const CTASection = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+            transition={{ duration: 0.9, ease: "easeOut", delay: 0.6 }}
           >
             <Link to="/contacto">
               <Button 

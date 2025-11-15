@@ -36,17 +36,17 @@ const DifferentiatorSection = () => {
         <motion.h2
           initial={{ opacity: 0, x: -100 }}
           animate={isVisible ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
           className="text-4xl md:text-5xl lg:text-6xl font-medium text-foreground"
         >
-          Más allá de una agencia.
+          No, no somos una agencia.
         </motion.h2>
         
         {/* Body from RIGHT */}
         <motion.p
           initial={{ opacity: 0, x: 100 }}
           animate={isVisible ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
           className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed"
         >
           Combinamos la visión de tu negocio con una estrategia hecha a la medida para lograr tus objetivos desde el enfoque de marketing.
