@@ -17,7 +17,7 @@ const ServicesSection = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.78 }}
         className="text-center mb-16 md:mb-24 px-6"
       >
         <h2 className="text-3xl md:text-4xl font-light text-gray-800 tracking-widest uppercase">
@@ -38,8 +38,8 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{
-                duration: 0.7,
-                delay: index * 0.1,
+                duration: 0.91,
+                delay: index * 0.13,
                 ease: [0.25, 0.1, 0.25, 1],
               }}
               whileHover={{ scale: 1.05 }}
