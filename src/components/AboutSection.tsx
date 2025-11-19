@@ -1,57 +1,42 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    }, {
+      threshold: 0.3
+    });
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
-
-  return (
-    <section
-      ref={sectionRef}
-      className="min-h-screen flex items-center justify-center bg-background py-20 px-6"
-    >
+  return <section ref={sectionRef} className="min-h-screen flex items-center justify-center bg-background py-20 px-6">
       <div className="container mx-auto max-w-5xl space-y-8">
-        <motion.p
-          initial={{ opacity: 0, x: 100 }}
-          animate={isVisible ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="text-xl md:text-2xl text-foreground font-light leading-relaxed"
-        >
+        <motion.p initial={{
+        opacity: 0,
+        x: 100
+      }} animate={isVisible ? {
+        opacity: 1,
+        x: 0
+      } : {}} transition={{
+        duration: 1.5,
+        ease: "easeOut"
+      }} className="text-xl md:text-2xl text-foreground font-light leading-relaxed">
           Acompañamos a emprendedores y marcas con visión no desde la superficie, sino desde la raíz estratégica, creando entornos donde sus ideas puedan evolucionar con claridad, narrativa y dirección.
         </motion.p>
         
-        <motion.p
-          initial={{ opacity: 0, x: 100 }}
-          animate={isVisible ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
-          className="text-xl md:text-2xl text-foreground font-light leading-relaxed"
-        >
-          Cuidamos a nuestros clientes como un arrecife cuida su ecosistema: con equilibrio, conocimiento y respeto por su ritmo de crecimiento.
-        </motion.p>
+        
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
