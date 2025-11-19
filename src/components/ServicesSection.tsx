@@ -14,16 +14,16 @@ const ServicesSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"]
+    offset: ["start center", "end start"]
   });
 
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[300vh] flex flex-col items-center justify-start bg-[hsl(var(--background-alt))] py-32 px-6 overflow-hidden"
+      className="relative min-h-[200vh] flex flex-col items-center justify-start bg-[hsl(var(--background-alt))] py-32 px-6 overflow-hidden"
     >
       <motion.h2 
-        className="text-3xl md:text-4xl font-light text-foreground mb-32 tracking-widest uppercase text-center sticky top-24"
+        className="text-3xl md:text-4xl font-light text-foreground mb-16 tracking-widest uppercase text-center sticky top-24"
         style={{
           opacity: useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0])
         }}
@@ -39,24 +39,24 @@ const ServicesSection = () => {
           const y = useTransform(
             scrollYProgress,
             [start, end],
-            [100, -100]
+            [50, -50]
           );
           
           const opacity = useTransform(
             scrollYProgress,
-            [start - 0.1, start, end, end + 0.1],
+            [start - 0.15, start, end, end + 0.15],
             [0, 1, 1, 0]
           );
           
           const scale = useTransform(
             scrollYProgress,
-            [start - 0.05, start + 0.05, end - 0.05, end + 0.05],
+            [start - 0.1, start, end, end + 0.1],
             [0.8, 1, 1, 0.8]
           );
           
           const blur = useTransform(
             scrollYProgress,
-            [start - 0.1, start, end, end + 0.1],
+            [start - 0.15, start, end, end + 0.15],
             [10, 0, 0, 10]
           );
 
