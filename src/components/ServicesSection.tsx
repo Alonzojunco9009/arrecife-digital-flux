@@ -14,64 +14,77 @@ const ServicesSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start center", "end start"]
+    offset: ["start end", "end start"]
   });
 
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[200vh] flex flex-col items-center justify-start bg-[hsl(var(--background-alt))] py-32 px-6 overflow-hidden"
+      className="relative min-h-[400vh] bg-gradient-to-b from-blue-50 to-blue-100 overflow-hidden"
     >
-      <motion.h2 
-        className="text-3xl md:text-4xl font-light text-foreground mb-16 tracking-widest uppercase text-center sticky top-24"
+      {/* Sticky Header */}
+      <motion.div
+        className="sticky top-0 pt-24 pb-12 z-10 bg-gradient-to-b from-blue-50/80 to-transparent backdrop-blur-sm"
         style={{
-          opacity: useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0])
+          opacity: useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [1, 1, 0.3, 0])
         }}
       >
-        NUESTROS SERVICIOS
-      </motion.h2>
-      
-      <div className="relative w-full max-w-7xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-light text-gray-800 tracking-widest uppercase text-center">
+          NUESTROS SERVICIOS
+        </h2>
+      </motion.div>
+
+      {/* Parallax Service Words */}
+      <div className="relative w-full h-full">
         {services.map((service, index) => {
-          const start = index / services.length;
-          const end = (index + 1) / services.length;
-          
+          // Each service gets a scroll window
+          const totalServices = services.length;
+          const windowSize = 1 / (totalServices - 1); // Overlapping windows
+          const start = index * windowSize * 0.7; // 0.7 for overlap
+          const peak = start + windowSize * 0.5;
+          const end = start + windowSize * 1.3;
+
+          // Parallax transforms
           const y = useTransform(
             scrollYProgress,
-            [start, end],
-            [50, -50]
+            [start, peak, end],
+            [150, 0, -150]
           );
-          
+
           const opacity = useTransform(
             scrollYProgress,
-            [start - 0.15, start, end, end + 0.15],
-            [0, 1, 1, 0]
+            [start, start + 0.1, peak, end - 0.1, end],
+            [0, 1, 1, 1, 0]
           );
-          
+
           const scale = useTransform(
             scrollYProgress,
-            [start - 0.1, start, end, end + 0.1],
-            [0.8, 1, 1, 0.8]
+            [start, peak, end],
+            [0.7, 1.1, 0.7]
           );
-          
-          const blur = useTransform(
-            scrollYProgress,
-            [start - 0.15, start, end, end + 0.15],
-            [10, 0, 0, 10]
-          );
+
+          // Alternate text color
+          const isEven = index % 2 === 0;
+          const textColor = isEven ? "text-gray-900" : "text-[#2DD4BF]";
 
           return (
             <motion.div
               key={service}
-              className="sticky top-1/2 -translate-y-1/2 flex items-center justify-center min-h-screen"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full"
               style={{
                 y,
                 opacity,
                 scale,
-                filter: useTransform(blur, (value) => `blur(${value}px)`),
               }}
             >
-              <h3 className="text-5xl md:text-7xl lg:text-8xl font-light text-foreground text-center leading-tight tracking-wide">
+              <h3
+                className={`text-5xl md:text-7xl lg:text-9xl font-light ${textColor} text-center leading-tight tracking-wide px-6`}
+                style={{
+                  textShadow: isEven 
+                    ? '2px 2px 20px rgba(0,0,0,0.1)' 
+                    : '2px 2px 20px rgba(45,212,191,0.3)'
+                }}
+              >
                 {service}
               </h3>
             </motion.div>
