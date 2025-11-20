@@ -16,7 +16,7 @@ const products = [
 const ProductCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, duration: 20 },
-    [Autoplay({ delay: 1500, stopOnInteraction: false })]
+    [Autoplay({ delay: 2500, stopOnInteraction: false })]
   );
 
   useEffect(() => {

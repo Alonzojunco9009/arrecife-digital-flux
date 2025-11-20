@@ -13,7 +13,7 @@ const HeroSection = () => {
       backgroundSize: '400% 400%'
     }} />
       
-      {/* Logo at top with bounce */}
+      {/* Logo at top center with bounce */}
       <motion.div initial={{
       opacity: 0,
       y: -50,
@@ -26,8 +26,8 @@ const HeroSection = () => {
       duration: 0.96,
       type: "spring",
       bounce: 0.4
-    }} className="absolute top-8 left-8 md:top-12 md:left-12 z-40">
-        <img src={logo} alt="Arrecife" className="h-12 md:h-16 w-auto" />
+    }} className="absolute top-8 left-1/2 -translate-x-1/2 md:top-12 z-40">
+        <img src={logo} alt="Arrecife" className="h-14 md:h-18 w-auto" />
       </motion.div>
 
       <div className="container mx-auto max-w-7xl flex flex-col justify-center items-center gap-8 relative z-10">
