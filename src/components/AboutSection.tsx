@@ -20,23 +20,19 @@ const AboutSection = () => {
       }
     };
   }, []);
-  return <section ref={sectionRef} className="min-h-screen flex items-center justify-center bg-background py-20 px-6">
+  return (
+    <section ref={sectionRef} className="min-h-screen flex items-center justify-center bg-background py-20 px-6 sand-texture">
       <div className="container mx-auto max-w-5xl space-y-8">
-        <motion.p initial={{
-        opacity: 0,
-        x: 100
-      }} animate={isVisible ? {
-        opacity: 1,
-        x: 0
-      } : {}} transition={{
-        duration: 1.5,
-        ease: "easeOut"
-      }} className="text-xl md:text-2xl text-foreground font-light leading-relaxed">
+        <motion.p 
+          initial={{ opacity: 0, x: 100 }} 
+          animate={isVisible ? { opacity: 1, x: 0 } : {}} 
+          transition={{ duration: 1.8, ease: "easeOut" }} 
+          className="text-xl md:text-2xl text-foreground font-light leading-relaxed"
+        >
           Acompañamos a emprendedores y marcas con visión no desde la superficie, sino desde la raíz estratégica, creando entornos donde sus ideas puedan evolucionar con claridad, narrativa y dirección.
         </motion.p>
-        
-        
       </div>
-    </section>;
+    </section>
+  );
 };
 export default AboutSection;
