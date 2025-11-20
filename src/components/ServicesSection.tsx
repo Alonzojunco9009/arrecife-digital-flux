@@ -43,9 +43,10 @@ const ServicesSection = () => {
               className="group cursor-default"
             >
               <h3
-                className="text-4xl md:text-6xl lg:text-8xl font-light text-gray-900 text-center leading-tight tracking-wide transition-all duration-300"
+                className="text-4xl md:text-6xl lg:text-8xl font-light text-gray-900 text-center leading-tight tracking-wider transition-all duration-300"
                 style={{
-                  textShadow: '2px 2px 20px rgba(0,0,0,0.1)'
+                  textShadow: '2px 2px 20px rgba(0,0,0,0.1)',
+                  letterSpacing: '0.11em'
                 }}
               >
                 {service}
