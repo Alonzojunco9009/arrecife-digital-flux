@@ -27,7 +27,7 @@ const HeroSection = () => {
       type: "spring",
       bounce: 0.4
     }} className="absolute top-8 left-1/2 -translate-x-1/2 md:top-12 z-40">
-        <img src={logo} alt="Arrecife" className="h-14 md:h-18 w-auto" />
+        
       </motion.div>
 
       <div className="container mx-auto max-w-7xl flex flex-col justify-center items-center gap-8 relative z-10">
