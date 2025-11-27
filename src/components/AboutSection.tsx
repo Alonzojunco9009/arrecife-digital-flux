@@ -33,7 +33,7 @@ const AboutSection = () => {
         ease: "easeOut"
       }} className="md:text-2xl text-foreground font-light leading-relaxed my-0 py-[80px] text-right text-2xl">
           Acompañamos a emprendedores y marcas con visión{" "}
-          <span className="font-medium">estratégica</span>
+          <span className="font-medium">estratégica.</span>
         </motion.p>
         
         <motion.p initial={{
@@ -46,9 +46,9 @@ const AboutSection = () => {
         duration: 1.8,
         ease: "easeOut",
         delay: 0.3
-      }} className="text-xl md:text-2xl text-foreground font-light leading-relaxed">
+      }} className="md:text-2xl text-foreground font-light leading-relaxed text-2xl">
           Y creamos entornos donde sus ideas puedan{" "}
-          <span className="font-medium">evolucionar</span>
+          <span className="font-medium">evolucionar.</span>
         </motion.p>
       </div>
     </section>;
