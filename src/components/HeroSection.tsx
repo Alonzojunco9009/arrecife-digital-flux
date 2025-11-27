@@ -32,7 +32,7 @@ const HeroSection = () => {
             scale: 1,
           } : {}}
           transition={{
-            duration: 0.8,
+            duration: 1.28,
             ease: "easeOut",
           }}
           className="w-48 md:w-64 lg:w-80"
@@ -50,7 +50,7 @@ const HeroSection = () => {
             <TextEffect
               per="word"
               preset="blur"
-              delay={0.8}
+              delay={1.28}
               className="text-5xl md:text-7xl lg:text-8xl font-light text-foreground tracking-wider"
               variants={{
                 container: {
@@ -58,7 +58,7 @@ const HeroSection = () => {
                   visible: {
                     opacity: 1,
                     transition: {
-                      staggerChildren: 0.0975,
+                      staggerChildren: 0.156,
                     }
                   }
                 },
@@ -75,7 +75,7 @@ const HeroSection = () => {
                     scale: 1,
                     y: 0,
                     transition: { 
-                      duration: 0.78,
+                      duration: 1.248,
                       ease: "easeOut"
                     }
                   }
