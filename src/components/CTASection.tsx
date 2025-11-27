@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import arrecifeConsulLogo from "@/assets/arrecife-consultores-logo.png";
 
 const CTASection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -65,14 +65,28 @@ const CTASection = () => {
             animate={isVisible ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.6 }}
           >
-            <Link to="/contacto">
+            <a href="https://wa.me/529931000420" target="_blank" rel="noopener noreferrer">
               <Button 
                 size="lg"
                 className="rounded-full px-12 py-6 text-lg font-medium hover:scale-110 transition-all duration-300 bg-primary hover:bg-[hsl(185_80%_20%)]"
               >
                 + INFO
               </Button>
-            </Link>
+            </a>
+          </motion.div>
+
+          {/* Arrecife Consultores Logo */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1.2, ease: "easeOut", delay: 0.9 }}
+            className="pt-8"
+          >
+            <img 
+              src={arrecifeConsulLogo} 
+              alt="Arrecife Consultores" 
+              className="w-64 h-auto opacity-90"
+            />
           </motion.div>
         </div>
       </div>

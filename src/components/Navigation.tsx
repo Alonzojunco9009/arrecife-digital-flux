@@ -47,13 +47,15 @@ const Navigation = () => {
             >
               About Us
             </a>
-            <Link
-              to="/contacto"
+            <a
+              href="https://wa.me/529931000420"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
               className="text-3xl font-light text-foreground hover:text-primary transition-colors"
             >
               Contacto
-            </Link>
+            </a>
           </div>
         </div>
       )}
