@@ -52,6 +52,25 @@ const HeroSection = () => {
               preset="blur"
               delay={0.8}
               className="text-5xl md:text-7xl lg:text-8xl font-light text-foreground tracking-wider"
+              variants={{
+                container: {
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.065,
+                    }
+                  }
+                },
+                item: {
+                  hidden: { opacity: 0, filter: 'blur(12px)' },
+                  visible: { 
+                    opacity: 1, 
+                    filter: 'blur(0px)',
+                    transition: { duration: 0.52 }
+                  }
+                }
+              }}
             >
               Arrecife Marketing Group
             </TextEffect>
