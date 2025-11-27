@@ -32,7 +32,7 @@ const ProductCarousel = () => {
   }, [emblaApi]);
 
   return (
-    <section className="relative py-8 md:py-20 overflow-hidden sand-texture" style={{ backgroundColor: '#272640' }}>
+    <section className="relative py-8 md:py-20 overflow-hidden sand-texture bg-[hsl(var(--background-alt))]">
       <div className="overflow-hidden w-full md:w-[50%] md:mx-auto" ref={emblaRef}>
         <div className="flex">
           {products.map((product, index) => (
