@@ -221,4 +221,61 @@ All colors MUST be HSL.
     position: relative;
     z-index: 2;
   }
+  
+  /* Splash screen animations */
+  @keyframes splash-scale {
+    0% {
+      clip-path: polygon(0vw 0vh, 100vw 0vh, 100vw 100vh, 0vw 100vh);
+    }
+    100% {
+      clip-path: polygon(45vw 40vh, 55vw 40vh, 55vw 60vh, 45vw 60vh);
+    }
+  }
+  
+  @keyframes splash-expand {
+    0% {
+      clip-path: polygon(45vw 40vh, 55vw 40vh, 55vw 60vh, 45vw 60vh);
+    }
+    25% {
+      clip-path: polygon(0vw 0vh, 55vw 40vh, 55vw 60vh, 45vw 60vh);
+    }
+    50% {
+      clip-path: polygon(0vw 0vh, 100vw 0vh, 55vw 60vh, 45vw 60vh);
+    }
+    75% {
+      clip-path: polygon(0vw 0vh, 100vw 0vh, 55vw 60vh, 0vw 100vh);
+    }
+    100% {
+      clip-path: polygon(0vw 0vh, 100vw 0vh, 100vw 100vh, 0vw 100vh);
+    }
+  }
+  
+  @keyframes splash-hide {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes logo-reveal {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes logo-color-shift {
+    0% {
+      filter: brightness(2);
+    }
+    100% {
+      filter: brightness(1);
+    }
+  }
 }
