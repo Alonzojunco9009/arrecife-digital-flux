@@ -150,7 +150,7 @@ const AnimationComponent: React.FC<{
 }) => {
   const content = per === 'line' ? <motion.span variants={variants} className='block'>
         {segment}
-      </motion.span> : per === 'word' ? <motion.span aria-hidden='true' variants={variants} className="inline-block whitespace-pre px-0 text-center text-5xl font-light py-[5px]">
+      </motion.span> : per === 'word' ? <motion.span aria-hidden='true' variants={variants} className="inline-block whitespace-pre px-0 text-center text-5xl py-[5px] font-medium">
         {segment}
       </motion.span> : <motion.span className='inline-block whitespace-pre'>
         {segment.split('').map((char, charIndex) => <motion.span key={`char-${charIndex}`} aria-hidden='true' variants={variants} className='inline-block whitespace-pre'>
