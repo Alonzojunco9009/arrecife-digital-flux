@@ -45,18 +45,10 @@ const HeroSection = () => {
         }}
       >
         {/* Layer 1: Contracting layer - starts fullscreen BLACK */}
-        <div className="splash-layer-minimize absolute inset-0">
-          <svg width="100%" height="100%">
-            <rect width="100%" height="100%" />
-          </svg>
-        </div>
+        <div className="splash-layer-minimize absolute inset-0"></div>
 
         {/* Layer 2: Expanding layer - triangular transitions BLACK/YELLOW */}
-        <div className="splash-layer-expand absolute inset-0">
-          <svg width="100%" height="100%">
-            <rect width="100%" height="100%" />
-          </svg>
-        </div>
+        <div className="splash-layer-expand absolute inset-0"></div>
       </div>
 
       <div className="container mx-auto max-w-7xl flex flex-col justify-center items-center gap-12 relative z-10">
