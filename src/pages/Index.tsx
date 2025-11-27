@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
+import VisionSection from "@/components/VisionSection";
 import SolutionSection from "@/components/SolutionSection";
 import DifferentiatorSection from "@/components/DifferentiatorSection";
 import ProductCarousel from "@/components/ProductCarousel";
@@ -17,6 +18,7 @@ const Index = () => {
         <section id="inicio">
           <HeroSection />
         </section>
+        <VisionSection />
         <SolutionSection />
         <DifferentiatorSection />
         <ProductCarousel />
