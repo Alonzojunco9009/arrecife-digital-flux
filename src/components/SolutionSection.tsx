@@ -37,7 +37,7 @@ const SolutionSection = () => {
           initial={{ opacity: 0, x: 100 }}
           animate={isVisible ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 1.8, ease: "easeOut" }}
-          className="text-3xl md:text-5xl lg:text-6xl font-light text-foreground leading-tight"
+          className="text-3xl md:text-5xl lg:text-6xl font-light text-white leading-tight"
         >
           Porque en un entorno saturado de speechs de venta,{" "}
           <span className="font-medium">
