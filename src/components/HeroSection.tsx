@@ -58,16 +58,26 @@ const HeroSection = () => {
                   visible: {
                     opacity: 1,
                     transition: {
-                      staggerChildren: 0.065,
+                      staggerChildren: 0.0975,
                     }
                   }
                 },
                 item: {
-                  hidden: { opacity: 0, filter: 'blur(12px)' },
+                  hidden: { 
+                    opacity: 0, 
+                    filter: 'blur(20px)',
+                    scale: 0.8,
+                    y: 30
+                  },
                   visible: { 
                     opacity: 1, 
                     filter: 'blur(0px)',
-                    transition: { duration: 0.52 }
+                    scale: 1,
+                    y: 0,
+                    transition: { 
+                      duration: 0.78,
+                      ease: "easeOut"
+                    }
                   }
                 }
               }}
