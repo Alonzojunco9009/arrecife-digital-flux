@@ -32,26 +32,26 @@ const ProductCarousel = () => {
   }, [emblaApi]);
 
   return (
-    <section className="relative py-16 md:py-20 overflow-hidden sand-texture" style={{ backgroundColor: '#272640' }}>
-      <div className="container mx-auto px-6">
-        <div className="overflow-hidden w-full md:w-[50%] mx-auto" ref={emblaRef}>
-          <div className="flex">
-            {products.map((product, index) => (
-              <div
-                key={index}
-                className="flex-[0_0_100%] min-w-0 relative h-[70vh] md:h-[30vh]"
-              >
-                <img
-                  src={product.src}
-                  alt={product.alt}
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </div>
-            ))}
-          </div>
+    <section className="relative py-8 md:py-20 overflow-hidden sand-texture" style={{ backgroundColor: '#272640' }}>
+      <div className="overflow-hidden w-full md:w-[50%] md:mx-auto" ref={emblaRef}>
+        <div className="flex">
+          {products.map((product, index) => (
+            <div
+              key={index}
+              className="flex-[0_0_100%] min-w-0 relative h-[70vh] md:h-[30vh]"
+            >
+              <img
+                src={product.src}
+                alt={product.alt}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
         </div>
+      </div>
 
-        {/* Navigation Dots */}
+      {/* Navigation Dots */}
+      <div className="container mx-auto px-6">
         <div className="flex justify-center gap-2 mt-6">
           {products.map((_, index) => (
             <button
