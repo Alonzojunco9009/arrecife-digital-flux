@@ -16,7 +16,7 @@ const products = [
 const ProductCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, duration: 20 },
-    [Autoplay({ delay: 2000, stopOnInteraction: false })]
+    [Autoplay({ delay: 4000, stopOnInteraction: false })]
   );
 
   useEffect(() => {
@@ -26,9 +26,9 @@ const ProductCarousel = () => {
   }, [emblaApi]);
 
   return (
-    <section className="relative py-16 md:py-20 bg-gradient-to-b from-blue-50 to-blue-100 overflow-hidden sand-texture">
+    <section className="relative py-16 md:py-20 overflow-hidden sand-texture" style={{ backgroundColor: '#312244' }}>
       <div className="container mx-auto px-6">
-        <div className="overflow-hidden" ref={emblaRef}>
+        <div className="overflow-hidden w-[90%] md:w-[50%] mx-auto" ref={emblaRef}>
           <div className="flex">
             {products.map((product, index) => (
               <div
