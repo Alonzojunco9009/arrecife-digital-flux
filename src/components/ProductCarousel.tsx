@@ -16,7 +16,7 @@ const products = [
 const ProductCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, duration: 20 },
-    [Autoplay({ delay: 2500, stopOnInteraction: false })]
+    [Autoplay({ delay: 2000, stopOnInteraction: false })]
   );
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const ProductCarousel = () => {
             {products.map((product, index) => (
               <div
                 key={index}
-                className="flex-[0_0_100%] min-w-0 relative h-[25vh] md:h-[30vh]"
+                className="flex-[0_0_100%] min-w-0 relative h-[70vh] md:h-[30vh]"
               >
                 <img
                   src={product.src}
