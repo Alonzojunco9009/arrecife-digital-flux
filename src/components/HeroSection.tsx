@@ -44,31 +44,17 @@ const HeroSection = () => {
           transition: splashPhase === 'complete' ? 'opacity 0.5s ease-out' : 'none',
         }}
       >
-        {/* Layer 1: Contracting layer */}
+        {/* Layer 1: Contracting layer - starts fullscreen BLACK */}
         <div className="splash-layer-minimize absolute inset-0">
           <svg width="100%" height="100%">
-            <rect 
-              width="100%" 
-              height="100%" 
-              fill="hsl(181 100% 20%)"
-              style={{
-                clipPath: 'polygon(0vw 0vh, 100vw 0vh, 100vw 100vh, 0vw 100vh)',
-              }}
-            />
+            <rect width="100%" height="100%" />
           </svg>
         </div>
 
-        {/* Layer 2: Expanding layer with geometric transitions */}
+        {/* Layer 2: Expanding layer - triangular transitions BLACK/YELLOW */}
         <div className="splash-layer-expand absolute inset-0">
           <svg width="100%" height="100%">
-            <rect 
-              width="100%" 
-              height="100%" 
-              fill="hsl(181 100% 20%)"
-              style={{
-                clipPath: 'polygon(45vw 40vh, 55vw 40vh, 55vw 60vh, 45vw 60vh)',
-              }}
-            />
+            <rect width="100%" height="100%" />
           </svg>
         </div>
       </div>
