@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 const services = ["Storytelling", "Estrategia", "Producción Audiovisual", "Branding", "Consultoría", "Soluciones con IA"];
 const ServicesSection = () => {
-  return <section className="relative py-20 md:py-32 bg-gradient-to-b from-blue-50 to-blue-100 overflow-hidden sand-texture">
+  return <section className="relative py-20 md:py-32 overflow-hidden sand-texture" style={{ backgroundColor: '#272640' }}>
       {/* Section Header - 60% slower */}
       <motion.div initial={{
       opacity: 0,
@@ -15,7 +15,7 @@ const ServicesSection = () => {
     }} transition={{
       duration: 1.25
     }} className="text-center mb-16 md:mb-24 px-6">
-        <h2 className="text-3xl md:text-4xl text-gray-800 tracking-widest uppercase font-medium">
+        <h2 className="text-3xl md:text-4xl text-white tracking-widest uppercase font-medium">
           NUESTROS SERVICIOS
         </h2>
       </motion.div>
@@ -39,8 +39,8 @@ const ServicesSection = () => {
         }} whileHover={{
           scale: 1.05
         }} className="group cursor-default">
-              <h3 className="text-4xl md:text-6xl lg:text-8xl font-light text-gray-900 text-center leading-tight tracking-wider transition-all duration-300" style={{
-            textShadow: '2px 2px 20px rgba(0,0,0,0.1)',
+              <h3 className="text-4xl md:text-6xl lg:text-8xl font-light text-white text-center leading-tight tracking-wider transition-all duration-300" style={{
+            textShadow: '2px 2px 20px rgba(255,255,255,0.1)',
             letterSpacing: '0.11em'
           }}>
                 {service}
