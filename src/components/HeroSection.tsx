@@ -36,20 +36,78 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Splash Overlay - Two Layer Approach */}
-      <div 
+      {/* Splash Overlay - Two Layer Approach with Framer Motion */}
+      <motion.div 
         className="fixed inset-0 z-50 pointer-events-none"
-        style={{
+        animate={{
           opacity: splashPhase === 'complete' ? 0 : 1,
-          transition: splashPhase === 'complete' ? 'opacity 0.5s ease-out' : 'none',
+        }}
+        transition={{
+          duration: splashPhase === 'complete' ? 0.5 : 0,
+          ease: "easeOut",
         }}
       >
-        {/* Layer 1: Contracting layer - starts fullscreen BLACK */}
-        <div className="splash-layer-minimize absolute inset-0"></div>
+        {/* Layer 1: Contracting BLACK layer */}
+        <motion.div
+          className="absolute inset-0"
+          initial={{
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            backgroundColor: "#292929",
+          }}
+          animate={{
+            clipPath: [
+              "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              "polygon(45% 40%, 55% 40%, 55% 60%, 45% 60%)",
+            ],
+            opacity: [1, 1, 0],
+          }}
+          transition={{
+            clipPath: {
+              duration: 1,
+              ease: "easeOut",
+              times: [0, 1],
+            },
+            opacity: {
+              duration: 0.5,
+              delay: 1.5,
+              ease: "easeOut",
+            },
+          }}
+        />
 
-        {/* Layer 2: Expanding layer - triangular transitions BLACK/YELLOW */}
-        <div className="splash-layer-expand absolute inset-0"></div>
-      </div>
+        {/* Layer 2: Expanding YELLOW/BLACK geometric layer */}
+        <motion.div
+          className="absolute inset-0"
+          initial={{
+            clipPath: "polygon(45% 40%, 55% 40%, 55% 60%, 45% 60%)",
+            backgroundColor: "#f5d300",
+          }}
+          animate={{
+            clipPath: [
+              "polygon(45% 40%, 55% 40%, 55% 60%, 45% 60%)",
+              "polygon(0% 0%, 55% 40%, 55% 60%, 45% 60%)",
+              "polygon(0% 0%, 100% 0%, 55% 60%, 45% 60%)",
+              "polygon(0% 0%, 100% 0%, 55% 60%, 0% 100%)",
+              "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            ],
+            backgroundColor: ["#f5d300", "#292929", "#f5d300", "#292929", "#f5d300"],
+          }}
+          transition={{
+            clipPath: {
+              duration: 2,
+              delay: 1.5,
+              ease: "easeInOut",
+              times: [0, 0.25, 0.5, 0.75, 1],
+            },
+            backgroundColor: {
+              duration: 2,
+              delay: 1.5,
+              ease: "easeInOut",
+              times: [0, 0.25, 0.5, 0.75, 1],
+            },
+          }}
+        />
+      </motion.div>
 
       <div className="container mx-auto max-w-7xl flex flex-col justify-center items-center gap-12 relative z-10">
         {/* Coral Logo - appears during contracted phase */}
