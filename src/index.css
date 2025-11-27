@@ -235,28 +235,41 @@ All colors MUST be HSL.
   @keyframes splash-expand {
     0% {
       clip-path: polygon(45vw 40vh, 55vw 40vh, 55vw 60vh, 45vw 60vh);
+      fill: hsl(181 100% 20%);
     }
     25% {
       clip-path: polygon(0vw 0vh, 55vw 40vh, 55vw 60vh, 45vw 60vh);
+      fill: white;
     }
     50% {
       clip-path: polygon(0vw 0vh, 100vw 0vh, 55vw 60vh, 45vw 60vh);
+      fill: hsl(181 100% 20%);
     }
     75% {
       clip-path: polygon(0vw 0vh, 100vw 0vh, 55vw 60vh, 0vw 100vh);
+      fill: white;
     }
     100% {
       clip-path: polygon(0vw 0vh, 100vw 0vh, 100vw 100vh, 0vw 100vh);
+      fill: hsl(181 100% 20%);
     }
   }
   
   @keyframes splash-hide {
     0% {
-      opacity: 1;
+      fill: hsl(181 100% 20%);
     }
     100% {
-      opacity: 0;
+      fill: transparent;
     }
+  }
+  
+  .splash-layer-minimize rect {
+    animation: splash-scale 1s ease-out 0.1s forwards, splash-hide 1.3s ease-out 1.2s forwards;
+  }
+  
+  .splash-layer-expand rect {
+    animation: splash-expand 1.5s ease-in-out 1.5s forwards;
   }
   
   @keyframes logo-reveal {

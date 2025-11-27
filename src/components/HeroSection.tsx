@@ -9,31 +9,19 @@ const HeroSection = () => {
   const [showText, setShowText] = useState(false);
 
   useEffect(() => {
-    // Phase 1: Contract (0s-1s)
-    const contractTimer = setTimeout(() => {
-      setSplashPhase('contracted');
-    }, 100);
-
-    // Phase 2: Show logo (1s)
+    // Show logo at 1s
     const logoTimer = setTimeout(() => {
       setShowLogo(true);
     }, 1000);
 
-    // Phase 3: Expand (1.5s-3s)
-    const expandTimer = setTimeout(() => {
-      setSplashPhase('expanding');
-    }, 1500);
-
-    // Phase 4: Complete and show text (3.5s)
+    // Complete and show text at 3.5s
     const completeTimer = setTimeout(() => {
       setSplashPhase('complete');
       setShowText(true);
     }, 3500);
 
     return () => {
-      clearTimeout(contractTimer);
       clearTimeout(logoTimer);
-      clearTimeout(expandTimer);
       clearTimeout(completeTimer);
     };
   }, []);
@@ -48,7 +36,7 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Splash Overlay */}
+      {/* Splash Overlay - Two Layer Approach */}
       <div 
         className="fixed inset-0 z-50 pointer-events-none"
         style={{
@@ -56,20 +44,33 @@ const HeroSection = () => {
           transition: splashPhase === 'complete' ? 'opacity 0.5s ease-out' : 'none',
         }}
       >
-        <svg width="100%" height="100%" className="absolute inset-0">
-          <rect 
-            width="100%" 
-            height="100%" 
-            fill="hsl(181 100% 20%)"
-            style={{
-              animation: splashPhase === 'contracted' 
-                ? 'splash-scale 1s ease-out forwards' 
-                : splashPhase === 'expanding' 
-                ? 'splash-expand 1.5s ease-in-out forwards'
-                : 'none',
-            }}
-          />
-        </svg>
+        {/* Layer 1: Contracting layer */}
+        <div className="splash-layer-minimize absolute inset-0">
+          <svg width="100%" height="100%">
+            <rect 
+              width="100%" 
+              height="100%" 
+              fill="hsl(181 100% 20%)"
+              style={{
+                clipPath: 'polygon(0vw 0vh, 100vw 0vh, 100vw 100vh, 0vw 100vh)',
+              }}
+            />
+          </svg>
+        </div>
+
+        {/* Layer 2: Expanding layer with geometric transitions */}
+        <div className="splash-layer-expand absolute inset-0">
+          <svg width="100%" height="100%">
+            <rect 
+              width="100%" 
+              height="100%" 
+              fill="hsl(181 100% 20%)"
+              style={{
+                clipPath: 'polygon(45vw 40vh, 55vw 40vh, 55vw 60vh, 45vw 60vh)',
+              }}
+            />
+          </svg>
+        </div>
       </div>
 
       <div className="container mx-auto max-w-7xl flex flex-col justify-center items-center gap-12 relative z-10">
@@ -89,8 +90,8 @@ const HeroSection = () => {
           }}
           className="w-48 md:w-64 lg:w-80"
           style={{
-            filter: splashPhase === 'expanding' || splashPhase === 'complete' ? 'brightness(1)' : 'brightness(2)',
-            transition: 'filter 1.5s ease-out',
+            filter: showLogo ? 'brightness(1)' : 'brightness(0)',
+            transition: 'filter 0.5s ease-out',
           }}
         >
           <img 
