@@ -20,8 +20,8 @@ const Index = () => {
         </section>
         <VisionSection />
         <SolutionSection />
-        <DifferentiatorSection />
         <ProductCarousel />
+        <DifferentiatorSection />
         <section id="about">
           <AboutSection />
         </section>
