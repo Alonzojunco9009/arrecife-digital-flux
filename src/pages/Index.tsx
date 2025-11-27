@@ -22,11 +22,11 @@ const Index = () => {
         <SolutionSection />
         <ProductCarousel />
         <DifferentiatorSection />
-        <section id="about">
-          <AboutSection />
-        </section>
         <section id="servicios">
           <ServicesSection />
+        </section>
+        <section id="about">
+          <AboutSection />
         </section>
         <CTASection />
       </main>
