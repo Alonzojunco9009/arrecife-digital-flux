@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { TextEffect } from "@/components/ui/text-effect";
 import coralLogo from "@/assets/arrecife-coral-logo.png";
 
 const HeroSection = () => {
   const [splashPhase, setSplashPhase] = useState<'initial' | 'contracted' | 'expanding' | 'complete'>('initial');
   const [showLogo, setShowLogo] = useState(false);
-  const [showText, setShowText] = useState(false);
+  const [showHeadline, setShowHeadline] = useState(false);
 
   useEffect(() => {
     // Show logo at 1s
@@ -14,10 +13,10 @@ const HeroSection = () => {
       setShowLogo(true);
     }, 1000);
 
-    // Complete and show text at 3.5s
+    // Complete and show headline at 3.5s
     const completeTimer = setTimeout(() => {
       setSplashPhase('complete');
-      setShowText(true);
+      setShowHeadline(true);
     }, 3500);
 
     return () => {
@@ -109,7 +108,7 @@ const HeroSection = () => {
         />
       </motion.div>
 
-      <div className="container mx-auto max-w-7xl flex flex-col justify-center items-center gap-12 relative z-10">
+      <div className="container mx-auto max-w-7xl flex flex-col justify-center items-center gap-16 relative z-10">
         {/* Coral Logo - appears during contracted phase */}
         <motion.div
           initial={{
@@ -124,7 +123,7 @@ const HeroSection = () => {
             duration: 0.5,
             ease: "easeOut",
           }}
-          className="w-48 md:w-64 lg:w-80"
+          className="w-32 md:w-40 lg:w-48"
           style={{
             filter: showLogo ? 'brightness(1)' : 'brightness(0)',
             transition: 'filter 0.5s ease-out',
@@ -137,48 +136,30 @@ const HeroSection = () => {
           />
         </motion.div>
 
-        {/* Arrecife Marketing Group - appears after splash completes */}
-        {showText && (
-          <div className="text-center">
-            <TextEffect
-              per="word"
-              preset="blur"
-              delay={0}
-              className="text-5xl md:text-7xl lg:text-8xl font-light text-foreground tracking-wider"
-              variants={{
-                container: {
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.156,
-                    }
-                  }
-                },
-                item: {
-                  hidden: { 
-                    opacity: 0, 
-                    filter: 'blur(20px)',
-                    scale: 0.8,
-                    y: 30
-                  },
-                  visible: { 
-                    opacity: 1, 
-                    filter: 'blur(0px)',
-                    scale: 1,
-                    y: 0,
-                    transition: { 
-                      duration: 1.248,
-                      ease: "easeOut"
-                    }
-                  }
-                }
-              }}
-            >
-              Arrecife Marketing Group
-            </TextEffect>
-          </div>
-        )}
+        {/* Main Headline - Bold, Tight Tracking, Centered */}
+        <motion.h1
+          initial={{
+            opacity: 0,
+            y: 30,
+            filter: "blur(12px)",
+          }}
+          animate={showHeadline ? {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+          } : {}}
+          transition={{
+            duration: 1.2,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground text-center leading-tight max-w-5xl"
+          style={{
+            letterSpacing: '-0.02em',
+            textShadow: '0 4px 40px rgba(0,100,102,0.15), 0 2px 20px rgba(0,0,0,0.1)',
+          }}
+        >
+          Convertimos tu visión en estructura y la estrategia en resultados.
+        </motion.h1>
       </div>
     </section>
   );
