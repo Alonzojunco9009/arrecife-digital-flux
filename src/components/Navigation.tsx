@@ -7,15 +7,15 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="absolute top-0 left-0 right-0 z-50 flex justify-between items-center p-6">
-      <span className="text-xs uppercase font-bold text-foreground tracking-[0.3em]">
+    <nav className="absolute top-0 left-0 right-0 z-50 flex items-center p-6">
+      <span className="text-xs uppercase font-bold text-foreground tracking-[0.3em] flex-1 text-left md:text-center md:absolute md:left-1/2 md:-translate-x-1/2">
         Arrecife Marketing Group
       </span>
       <Button
         variant="ghost"
         size="icon"
         onClick={() => setIsOpen(!isOpen)}
-        className="relative z-[100] hover:bg-muted transition-all hover:scale-110"
+        className="relative z-[100] hover:bg-muted transition-all hover:scale-110 ml-auto"
         aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
       >
         {isOpen ? (
