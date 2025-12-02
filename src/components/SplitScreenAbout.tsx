@@ -20,15 +20,15 @@ const SplitScreenAbout = () => {
       }
     };
   }, []);
-  return <section ref={sectionRef} className="min-h-screen bg-background sand-texture relative z-5 mt-[-2px]">
+  return <section ref={sectionRef} className="bg-background sand-texture relative z-5 mt-[-2px]">
       {/* Top gradient blend from dark ParallaxBreak to white */}
       <div className="absolute top-0 left-0 right-0 h-32 pointer-events-none z-10" style={{
       background: 'linear-gradient(to bottom, rgba(0, 100, 102, 0.15), transparent)'
     }} />
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+      <div className="grid grid-cols-1 lg:grid-cols-2">
         {/* Left Column - Text Content */}
-        <div className="flex flex-col justify-center px-8 md:px-12 lg:px-16 xl:px-24 py-20 lg:py-0 order-2 lg:order-1">
-          <div className="max-w-[60ch] space-y-12 my-[20px] py-[80px]">
+        <div className="flex flex-col justify-center px-8 md:px-12 lg:px-16 xl:px-24 py-12 lg:py-16 order-2 lg:order-1">
+          <div className="max-w-[60ch] space-y-6">
             {/* Main Headline */}
             <motion.h2 initial={{
             opacity: 0,
@@ -63,7 +63,7 @@ const SplitScreenAbout = () => {
             duration: 1,
             ease: [0.16, 1, 0.3, 1],
             delay: 0.4
-          }} className="space-y-6 pt-6 border-t border-border/30">
+          }} className="space-y-4 pt-4 border-t border-border/30">
               <p className="text-lg md:text-xl text-foreground font-light leading-relaxed">
                 Acompañamos a emprendedores y marcas con visión{" "}
                 <span className="font-semibold">estratégica.</span>

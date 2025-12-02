@@ -100,7 +100,7 @@ const HeroSection = () => {
       </motion.div>
 
       <div className="container mx-auto max-w-7xl flex flex-col justify-center items-center gap-8 relative z-10">
-        {/* Coral Logo - appears during contracted phase */}
+      {/* Coral Logo - appears during contracted phase */}
         <motion.div initial={{
         opacity: 0,
         scale: 0.8
@@ -108,11 +108,11 @@ const HeroSection = () => {
         opacity: 1,
         scale: 1
       } : {}} transition={{
-        duration: 0.5,
-        ease: "easeOut"
+        duration: 1.8,
+        ease: [0.16, 1, 0.3, 1]
       }} className="w-32 md:w-40 lg:w-48" style={{
         filter: showLogo ? 'brightness(1)' : 'brightness(0)',
-        transition: 'filter 0.5s ease-out'
+        transition: 'filter 1.8s ease-out'
       }}>
           <img src={coralLogo} alt="Arrecife Marketing Group" className="w-full h-auto" />
         </motion.div>
@@ -128,9 +128,9 @@ const HeroSection = () => {
         y: 0,
         filter: "blur(0px)"
       } : {}} transition={{
-        duration: 1.2,
+        duration: 1.8,
         ease: [0.16, 1, 0.3, 1],
-        delay: 0.15
+        delay: 0.2
       }} style={{
         letterSpacing: '-0.02em',
         textShadow: '0 4px 40px rgba(0,100,102,0.15), 0 2px 20px rgba(0,0,0,0.1)'
