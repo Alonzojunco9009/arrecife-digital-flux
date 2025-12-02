@@ -16,7 +16,8 @@ const ParallaxBreak = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative h-[400px] md:h-[50vh] overflow-hidden"
+      className="relative h-[400px] md:h-[50vh] overflow-hidden z-10"
+      style={{ marginTop: '-2px', marginBottom: '-2px' }}
     >
       {/* Parallax Background Image */}
       <motion.div 
@@ -70,9 +71,9 @@ const ParallaxBreak = () => {
         }}
       />
 
-      {/* Infinite Text Marquee */}
-      <div className="absolute inset-0 flex items-center overflow-hidden pointer-events-none">
-        <div className="flex whitespace-nowrap animate-marquee">
+      {/* Infinite Text Marquee - Vertically Centered with Padding */}
+      <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none py-12">
+        <div className="flex whitespace-nowrap animate-marquee items-center">
           {[...Array(6)].map((_, i) => (
             <span 
               key={i}
