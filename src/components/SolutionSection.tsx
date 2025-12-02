@@ -38,7 +38,7 @@ const SolutionSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center bg-[hsl(var(--background-alt))] py-20 px-6 sand-texture relative z-10"
+      className="min-h-screen flex items-center justify-center bg-[hsl(var(--background-alt))] py-20 px-6 sand-texture relative z-20 -mb-[2px]"
     >
       <div className="container mx-auto max-w-5xl">
         {/* THE PROBLEM - With Scroll-Triggered Highlight */}

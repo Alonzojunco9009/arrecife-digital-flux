@@ -29,8 +29,15 @@ const SplitScreenAbout = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen bg-background sand-texture"
+      className="min-h-screen bg-background sand-texture relative z-5 mt-[-2px]"
     >
+      {/* Top gradient blend from dark ParallaxBreak to white */}
+      <div 
+        className="absolute top-0 left-0 right-0 h-32 pointer-events-none z-10"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(0, 100, 102, 0.15), transparent)',
+        }}
+      />
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
         {/* Left Column - Text Content */}
         <div className="flex flex-col justify-center px-8 md:px-12 lg:px-16 xl:px-24 py-20 lg:py-0 order-2 lg:order-1">
