@@ -20,7 +20,7 @@ const ParallaxBreak = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative h-[400px] md:h-[50vh] overflow-hidden z-10"
+      className="relative h-[280px] md:h-[35vh] overflow-hidden z-10"
       style={{ 
         marginTop: '-2px', 
         marginBottom: '-2px',
