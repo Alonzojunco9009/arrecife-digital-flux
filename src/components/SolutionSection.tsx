@@ -48,13 +48,13 @@ const SolutionSection = () => {
           animate={isVisible ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 1.8, ease: "easeOut" }}
           className="text-3xl md:text-5xl lg:text-6xl font-light leading-tight"
-          style={{ color: 'rgba(255, 255, 255, 0.4)' }}
+          style={{ color: 'rgba(255, 255, 255, 0.5)' }}
         >
           Porque en un entorno saturado de{" "}
           <motion.span 
-            className="font-medium transition-colors duration-500"
+            className="font-semibold transition-colors duration-500"
             style={{ 
-              color: useTransform(highlightProgress, [0, 1], ['rgba(255, 255, 255, 0.4)', '#006466'])
+              color: useTransform(highlightProgress, [0, 1], ['rgba(255, 255, 255, 0.5)', '#ffffff'])
             }}
           >
             speechs de venta
@@ -63,7 +63,7 @@ const SolutionSection = () => {
           <motion.span 
             className="font-medium transition-colors duration-500"
             style={{ 
-              color: useTransform(highlightProgress, [0, 1], ['rgba(255, 255, 255, 0.4)', '#ffffff'])
+              color: useTransform(highlightProgress, [0, 1], ['rgba(255, 255, 255, 0.5)', '#ffffff'])
             }}
           >
             gran producto
@@ -72,7 +72,7 @@ const SolutionSection = () => {
           <motion.span 
             className="font-semibold transition-colors duration-500"
             style={{ 
-              color: useTransform(highlightProgress, [0, 1], ['rgba(255, 255, 255, 0.4)', '#006466'])
+              color: useTransform(highlightProgress, [0, 1], ['rgba(255, 255, 255, 0.5)', '#006466'])
             }}
           >
             no es suficiente.
