@@ -26,7 +26,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden sand-texture py-20 px-6">
+    <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden sand-texture py-20 px-6">
       {/* Animated gradient background */}
       <div
         className="absolute inset-0 bg-gradient-to-br from-background via-blue-50/20 to-teal-50/30"
@@ -34,6 +34,37 @@ const HeroSection = () => {
           backgroundSize: '400% 400%',
         }}
       />
+
+      {/* Animated Gradient Blobs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div 
+          className="absolute w-[600px] h-[600px] rounded-full opacity-30 blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, rgba(200, 210, 230, 0.5) 0%, transparent 70%)',
+            top: '10%',
+            left: '20%',
+            animation: 'blob-float 20s ease-in-out infinite',
+          }}
+        />
+        <div 
+          className="absolute w-[500px] h-[500px] rounded-full opacity-20 blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, rgba(0, 100, 102, 0.15) 0%, transparent 70%)',
+            top: '40%',
+            right: '15%',
+            animation: 'blob-float 25s ease-in-out infinite reverse',
+          }}
+        />
+        <div 
+          className="absolute w-[400px] h-[400px] rounded-full opacity-25 blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, rgba(180, 200, 220, 0.4) 0%, transparent 70%)',
+            bottom: '10%',
+            left: '40%',
+            animation: 'blob-float 18s ease-in-out infinite 2s',
+          }}
+        />
+      </div>
 
       {/* Splash Overlay - Two Layer Approach with Framer Motion */}
       <motion.div 
@@ -136,7 +167,7 @@ const HeroSection = () => {
           />
         </motion.div>
 
-        {/* Company Name - Premium Sub-header */}
+        {/* Company Name - Premium Sub-header (Smaller, Bold, Wide Tracking) */}
         <motion.p
           initial={{
             opacity: 0,
@@ -152,13 +183,13 @@ const HeroSection = () => {
             duration: 1.2,
             ease: [0.16, 1, 0.3, 1],
           }}
-          className="text-sm md:text-base uppercase text-muted-foreground font-medium"
-          style={{ letterSpacing: '0.25em' }}
+          className="text-xs md:text-sm uppercase text-muted-foreground font-bold"
+          style={{ letterSpacing: '0.3em' }}
         >
           Arrecife Marketing Group
         </motion.p>
 
-        {/* Main Headline - Bold, Tight Tracking, Centered */}
+        {/* Main Headline - MASSIVE, Bold, Tight Tracking, Centered */}
         <motion.h1
           initial={{
             opacity: 0,
@@ -175,7 +206,7 @@ const HeroSection = () => {
             ease: [0.16, 1, 0.3, 1],
             delay: 0.15,
           }}
-          className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground text-center leading-tight max-w-5xl"
+          className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground text-center leading-tight max-w-5xl"
           style={{
             letterSpacing: '-0.02em',
             textShadow: '0 4px 40px rgba(0,100,102,0.15), 0 2px 20px rgba(0,0,0,0.1)',

@@ -1,9 +1,18 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const SolutionSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLParagraphElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "center center"],
+  });
+
+  // Transform scroll progress to highlight intensity (0 to 1)
+  const highlightProgress = useTransform(scrollYProgress, [0.3, 0.8], [0, 1]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,20 +38,45 @@ const SolutionSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center bg-[hsl(var(--background-alt))] py-20 px-6 sand-texture"
+      className="min-h-screen flex items-center justify-center bg-[hsl(var(--background-alt))] py-20 px-6 sand-texture relative z-10"
     >
       <div className="container mx-auto max-w-5xl">
-        {/* THE PROBLEM - Slides from RIGHT - 20% slower */}
+        {/* THE PROBLEM - With Scroll-Triggered Highlight */}
         <motion.p
+          ref={textRef}
           initial={{ opacity: 0, x: 100 }}
           animate={isVisible ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 1.8, ease: "easeOut" }}
-          className="text-3xl md:text-5xl lg:text-6xl font-light text-white leading-tight"
+          className="text-3xl md:text-5xl lg:text-6xl font-light leading-tight"
+          style={{ color: 'rgba(255, 255, 255, 0.4)' }}
         >
-          Porque en un entorno saturado de speechs de venta,{" "}
-          <span className="font-medium">
-            tener un gran producto ya no es suficiente.
-          </span>
+          Porque en un entorno saturado de{" "}
+          <motion.span 
+            className="font-medium transition-colors duration-500"
+            style={{ 
+              color: useTransform(highlightProgress, [0, 1], ['rgba(255, 255, 255, 0.4)', '#006466'])
+            }}
+          >
+            speechs de venta
+          </motion.span>
+          ,{" "}tener un{" "}
+          <motion.span 
+            className="font-medium transition-colors duration-500"
+            style={{ 
+              color: useTransform(highlightProgress, [0, 1], ['rgba(255, 255, 255, 0.4)', '#ffffff'])
+            }}
+          >
+            gran producto
+          </motion.span>
+          {" "}ya{" "}
+          <motion.span 
+            className="font-semibold transition-colors duration-500"
+            style={{ 
+              color: useTransform(highlightProgress, [0, 1], ['rgba(255, 255, 255, 0.4)', '#006466'])
+            }}
+          >
+            no es suficiente.
+          </motion.span>
         </motion.p>
       </div>
     </section>
