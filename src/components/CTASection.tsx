@@ -22,16 +22,13 @@ const CTASection = () => {
       }
     };
   }, []);
-  return <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center bg-background py-20 px-6 overflow-hidden">
+  return <section ref={sectionRef} className="relative flex items-center justify-center bg-background py-16 px-6 overflow-hidden">
       {/* Decorative teal element */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-primary opacity-10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary opacity-5 rounded-full blur-3xl" />
 
       <div className="container mx-auto max-w-4xl relative z-10">
-        <div className="flex flex-col items-center space-y-12 text-center">
-          {/* Text Block */}
-          
-
+        <div className="flex flex-col items-center space-y-6 text-center">
           {/* CTA Label */}
           <motion.p initial={{
           opacity: 0,
@@ -43,7 +40,7 @@ const CTASection = () => {
           duration: 1.2,
           ease: "easeOut",
           delay: 0.3
-        }} className="text-xl md:text-2xl font-medium text-primary py-[80px]">¿Te gustaría escalar tu negocio?</motion.p>
+        }} className="text-xl md:text-2xl font-medium text-primary">¿Te gustaría escalar tu negocio?</motion.p>
 
           {/* Button */}
           <motion.div initial={{
