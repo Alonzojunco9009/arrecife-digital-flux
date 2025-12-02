@@ -24,13 +24,15 @@ const AboutSection = () => {
       <div className="container mx-auto max-w-5xl space-y-8">
         <motion.p initial={{
         opacity: 0,
-        x: 100
+        x: 100,
+        filter: "blur(8px)"
       }} animate={isVisible ? {
         opacity: 1,
-        x: 0
+        x: 0,
+        filter: "blur(0px)"
       } : {}} transition={{
-        duration: 1.8,
-        ease: "easeOut"
+        duration: 1.2,
+        ease: [0.16, 1, 0.3, 1]
       }} className="md:text-2xl text-foreground font-light leading-relaxed my-0 py-[80px] text-right text-2xl">
           Acompañamos a emprendedores y marcas con visión{" "}
           <span className="font-medium">estratégica.</span>
@@ -38,14 +40,16 @@ const AboutSection = () => {
         
         <motion.p initial={{
         opacity: 0,
-        x: 100
+        x: 100,
+        filter: "blur(8px)"
       }} animate={isVisible ? {
         opacity: 1,
-        x: 0
+        x: 0,
+        filter: "blur(0px)"
       } : {}} transition={{
-        duration: 1.8,
-        ease: "easeOut",
-        delay: 0.3
+        duration: 1.2,
+        ease: [0.16, 1, 0.3, 1],
+        delay: 0.2
       }} className="md:text-2xl text-foreground font-light leading-relaxed text-2xl">
           Y creamos entornos donde sus ideas puedan{" "}
           <span className="font-medium">evolucionar.</span>

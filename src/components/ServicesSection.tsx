@@ -37,9 +37,10 @@ const ServicesSection = () => {
           delay: index * 0.21,
           ease: [0.25, 0.1, 0.25, 1]
         }} whileHover={{
-          scale: 1.05
+          y: -5,
+          transition: { duration: 0.3, ease: "easeOut" }
         }} className="group cursor-default">
-              <h3 className="text-4xl md:text-6xl lg:text-8xl font-light text-white text-center leading-tight tracking-wider transition-all duration-300" style={{
+              <h3 className="text-4xl md:text-6xl lg:text-8xl font-light text-white text-center leading-tight tracking-wider transition-all duration-300 group-hover:drop-shadow-[0_20px_40px_rgba(255,255,255,0.15)]" style={{
             textShadow: '2px 2px 20px rgba(255,255,255,0.1)',
             letterSpacing: '0.11em'
           }}>

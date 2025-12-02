@@ -43,7 +43,7 @@ const ProductCarousel = () => {
               <img
                 src={product.src}
                 alt={product.alt}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover grayscale transition-all duration-500 hover:grayscale-0"
               />
             </div>
           ))}
