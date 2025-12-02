@@ -86,14 +86,14 @@ const ParallaxBreak = () => {
 
       {/* Layer 3: Text Marquee - moves slowest for depth perception */}
       <motion.div 
-        className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none"
+        className="absolute inset-0 flex items-center overflow-hidden pointer-events-none"
         style={{ y: yText }}
       >
-        <div className="flex whitespace-nowrap animate-marquee items-center py-12">
-          {[...Array(6)].map((_, i) => (
+        <div className="flex whitespace-nowrap animate-marquee items-center">
+          {[...Array(8)].map((_, i) => (
             <span 
               key={i}
-              className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mx-4"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mx-4 flex-shrink-0"
               style={{ 
                 opacity: 0.25,
                 letterSpacing: '0.05em',
