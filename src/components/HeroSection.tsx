@@ -117,23 +117,6 @@ const HeroSection = () => {
           <img src={coralLogo} alt="Arrecife Marketing Group" className="w-full h-auto" />
         </motion.div>
 
-        {/* Company Name - Premium Sub-header (Smaller, Bold, Wide Tracking) */}
-        <motion.p initial={{
-        opacity: 0,
-        y: 20,
-        filter: "blur(10px)"
-      }} animate={showHeadline ? {
-        opacity: 1,
-        y: 0,
-        filter: "blur(0px)"
-      } : {}} transition={{
-        duration: 1.2,
-        ease: [0.16, 1, 0.3, 1]
-      }} className="text-xs md:text-sm uppercase text-muted-foreground font-bold" style={{
-        letterSpacing: '0.3em'
-      }}>
-          Arrecife Marketing Group
-        </motion.p>
 
         {/* Main Headline - MASSIVE, Bold, Tight Tracking, Centered */}
         <motion.h1 initial={{
