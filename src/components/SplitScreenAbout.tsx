@@ -34,33 +34,33 @@ const SplitScreenAbout = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
         {/* Left Column - Text Content */}
         <div className="flex flex-col justify-center px-8 md:px-12 lg:px-16 xl:px-24 py-20 lg:py-0 order-2 lg:order-1">
-          <div className="max-w-xl space-y-10">
+          <div className="max-w-[60ch] space-y-12">
             {/* Main Headline */}
             <motion.h2
               initial={{ opacity: 0, x: -60, filter: "blur(8px)" }}
               animate={isVisible ? { opacity: 1, x: 0, filter: "blur(0px)" } : {}}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight"
               style={{ letterSpacing: '-0.02em' }}
             >
               No, no somos una agencia.
             </motion.h2>
 
-            {/* Body Text */}
+            {/* Body Text - Lighter weight, distinct from headline */}
             <motion.p
               initial={{ opacity: 0, x: -60, filter: "blur(8px)" }}
               animate={isVisible ? { opacity: 1, x: 0, filter: "blur(0px)" } : {}}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
               className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed"
             >
               Combinamos la visión de tu negocio con una estrategia hecha a la medida para lograr tus objetivos desde el enfoque de marketing.
             </motion.p>
 
-            {/* Secondary Text */}
+            {/* Secondary Text - Clear separation */}
             <motion.div
               initial={{ opacity: 0, x: -60, filter: "blur(8px)" }}
               animate={isVisible ? { opacity: 1, x: 0, filter: "blur(0px)" } : {}}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
               className="space-y-6 pt-6 border-t border-border/30"
             >
               <p className="text-lg md:text-xl text-foreground font-light leading-relaxed">

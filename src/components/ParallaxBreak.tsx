@@ -10,11 +10,13 @@ const ParallaxBreak = () => {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  
+  const marqueeText = "ESTRATEGIA • ESTRUCTURA • RESULTADOS • CRECIMIENTO • ";
 
   return (
     <section 
       ref={sectionRef}
-      className="relative h-[50vh] md:h-[60vh] overflow-hidden"
+      className="relative h-[400px] md:h-[50vh] overflow-hidden"
     >
       {/* Parallax Background Image */}
       <motion.div 
@@ -68,9 +70,27 @@ const ParallaxBreak = () => {
         }}
       />
 
+      {/* Infinite Text Marquee */}
+      <div className="absolute inset-0 flex items-center overflow-hidden pointer-events-none">
+        <div className="flex whitespace-nowrap animate-marquee">
+          {[...Array(6)].map((_, i) => (
+            <span 
+              key={i}
+              className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mx-4"
+              style={{ 
+                opacity: 0.25,
+                letterSpacing: '0.05em',
+              }}
+            >
+              {marqueeText}
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* Subtle noise texture for depth */}
       <div 
-        className="absolute inset-0 opacity-30 mix-blend-overlay"
+        className="absolute inset-0 opacity-30 mix-blend-overlay pointer-events-none"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
         }}
