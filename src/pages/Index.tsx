@@ -1,11 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
-import VisionSection from "@/components/VisionSection";
 import SolutionSection from "@/components/SolutionSection";
-import DifferentiatorSection from "@/components/DifferentiatorSection";
-import ProductCarousel from "@/components/ProductCarousel";
-import AboutSection from "@/components/AboutSection";
+import ParallaxBreak from "@/components/ParallaxBreak";
+import SplitScreenAbout from "@/components/SplitScreenAbout";
 import ServicesSection from "@/components/ServicesSection";
 import CTASection from "@/components/CTASection";
 
@@ -18,15 +16,13 @@ const Index = () => {
         <section id="inicio">
           <HeroSection />
         </section>
-        <VisionSection />
         <SolutionSection />
-        <ProductCarousel />
-        <DifferentiatorSection />
+        <ParallaxBreak />
+        <section id="about">
+          <SplitScreenAbout />
+        </section>
         <section id="servicios">
           <ServicesSection />
-        </section>
-        <section id="about">
-          <AboutSection />
         </section>
         <CTASection />
       </main>
