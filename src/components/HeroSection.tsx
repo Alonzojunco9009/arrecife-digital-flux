@@ -108,7 +108,7 @@ const HeroSection = () => {
         />
       </motion.div>
 
-      <div className="container mx-auto max-w-7xl flex flex-col justify-center items-center gap-16 relative z-10">
+      <div className="container mx-auto max-w-7xl flex flex-col justify-center items-center gap-8 relative z-10">
         {/* Coral Logo - appears during contracted phase */}
         <motion.div
           initial={{
@@ -136,6 +136,28 @@ const HeroSection = () => {
           />
         </motion.div>
 
+        {/* Company Name - Premium Sub-header */}
+        <motion.p
+          initial={{
+            opacity: 0,
+            y: 20,
+            filter: "blur(10px)",
+          }}
+          animate={showHeadline ? {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+          } : {}}
+          transition={{
+            duration: 1.2,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="text-sm md:text-base uppercase text-muted-foreground font-medium"
+          style={{ letterSpacing: '0.25em' }}
+        >
+          Arrecife Marketing Group
+        </motion.p>
+
         {/* Main Headline - Bold, Tight Tracking, Centered */}
         <motion.h1
           initial={{
@@ -151,6 +173,7 @@ const HeroSection = () => {
           transition={{
             duration: 1.2,
             ease: [0.16, 1, 0.3, 1],
+            delay: 0.15,
           }}
           className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground text-center leading-tight max-w-5xl"
           style={{
