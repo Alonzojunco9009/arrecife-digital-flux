@@ -7,7 +7,10 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-end p-6">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-6">
+      <span className="text-xs uppercase font-bold text-foreground tracking-[0.3em]">
+        Arrecife Marketing Group
+      </span>
       <Button
         variant="ghost"
         size="icon"
