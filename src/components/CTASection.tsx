@@ -73,7 +73,7 @@ const CTASection = () => {
           ease: "easeOut",
           delay: 0.9
         }} className="pt-8">
-            <img src={arrecifeConsulLogo} alt="Arrecife Consultores" className="w-64 h-auto opacity-90" />
+            
           </motion.div>
         </div>
       </div>
