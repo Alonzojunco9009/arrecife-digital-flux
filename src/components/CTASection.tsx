@@ -54,7 +54,7 @@ const CTASection = () => {
           ease: "easeOut",
           delay: 0.6
         }}>
-            <a href="https://wa.me/529931000420" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/525551001804" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="rounded-full px-12 py-6 text-lg font-medium hover:scale-110 transition-all duration-300 bg-primary hover:bg-[hsl(185_80%_20%)]">
                 + INFO
               </Button>
