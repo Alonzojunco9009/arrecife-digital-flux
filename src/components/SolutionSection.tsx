@@ -59,7 +59,7 @@ const SolutionSection = () => {
           </motion.span>
           {" "}ya{" "}
           <motion.span className="font-semibold transition-colors duration-500" style={{
-          color: useTransform(highlightProgress, [0, 1], ['rgba(255, 255, 255, 0.5)', '#006466'])
+          color: useTransform(highlightProgress, [0, 1], ['rgba(255, 255, 255, 0.5)', '#4ECDC4'])
         }}>
             no es suficiente.
           </motion.span>
