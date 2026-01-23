@@ -19,7 +19,7 @@ const Footer = () => {
               <a href="https://www.instagram.com/arrecife_mkt" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors" aria-label="Instagram">
                 <Instagram className="h-6 w-6" />
               </a>
-              <a href="mailto:contacto@arrecifemkt.com.mx" className="text-foreground hover:text-primary transition-colors" aria-label="Email">
+              <a href="mailto:zjunco@arrecifemkt.com.mx" className="text-foreground hover:text-primary transition-colors" aria-label="Email">
                 <Mail className="h-6 w-6" />
               </a>
             </div>
